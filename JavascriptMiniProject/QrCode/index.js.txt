@@ -1,0 +1,15 @@
+const btn = document.getElementById("btn");
+
+function GenerateQR() {
+    const inputData = document.getElementById("data").value;
+    const srcDiv = document.getElementById("srclink");
+
+    if (inputData === "") {
+        alert("The Field is Empty!!!");
+    } 
+    else 
+    {
+        const qrCodeSrc = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${inputData}`;
+        srcDiv.innerHTML = `<img src="${qrCodeSrc}" alt="QR Code">`;
+    }
+}

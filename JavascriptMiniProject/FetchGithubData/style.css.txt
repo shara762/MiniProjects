@@ -1,0 +1,85 @@
+.container {
+  
+    text-align: center;
+    background: linear-gradient(135deg, #ffcc33 0%,#fff133 60%, #989696 100%,);
+    color: rgb(170, 169, 169);
+    padding: 40px;
+    margin-top: 90px;
+    margin-left: 330px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 800px;
+  }
+  h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #f8c52c;
+    margin-left: 400px;
+    
+}
+  .userData, .reposContainer {
+    width: 48%; 
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-sizing: border-box; 
+    margin-left: 190px;
+  }
+  .userData img {
+
+    max-width: 100px; 
+    border-radius: 80px;
+  }
+
+  .reposContainer {
+    overflow-y: auto; 
+    background-color: #f2f2f2; 
+    height: 300px; 
+  }
+
+  .repoItem {
+   
+
+    display: block;
+    margin: 10px 0;
+    color: #0b08d3;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
+
+  .repoItem:hover {
+ 
+     color: #fea427;
+  
+  }
+  input {
+   
+    width: 20%;
+    padding: 10px;
+    margin: 10px 0;
+    margin-top: 80px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-left: 400px;
+    background: #f9f4f4;
+    color: #0a0a0a;
+    
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-left: 80px;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #ff6600 0%, #ffcc33 100%);
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #ffcc33 0%, #ff6600 100%);
+}

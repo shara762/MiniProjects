@@ -1,0 +1,62 @@
+async function fetchGithubUserData() {
+  const username = document.getElementById('username').value;
+  const url = `https://api.github.com/users/${username}`;
+
+  const userDataDiv = document.getElementById('userData');
+  const reposContainer = document.getElementById('reposContainer');
+
+  userDataDiv.innerHTML = '';
+  reposContainer.innerHTML = '';
+
+
+  try {
+    const response = await fetch(url);
+    
+    if (!response.ok) {
+      alert('Invalid username');
+      return;
+    }
+
+    const result = await response.json();
+    
+    userDataDiv.innerHTML = `<div>Type: ${result.type}</div>
+                             <div>Avatar Url:<img src="${result.avatar_url}"></div>
+                             <div>Bio: ${result.bio}</div>
+                             <div>Followers: ${result.followers}</div>
+                             <div>Following: ${result.following}</div>`;
+
+    fetchGithubRepos(username);
+  } 
+  catch (error) {
+    alert('An error occurred while fetching user data');
+    console.log(error);
+  }
+}
+
+async function fetchGithubRepos(username) {
+  const reposUrl = `https://api.github.com/users/${username}/repos`;
+
+  const reposContainer = document.getElementById('reposContainer');
+
+  try {
+    const response = await fetch(reposUrl);
+    if (!response.ok) {
+      alert('Error fetching repositories');
+      return;
+    }
+
+    const result = await response.json();
+
+    for (let i = 0; i < result.length; i++) {
+      const repoLink = document.createElement('a');
+      repoLink.className = 'repoItem';
+      repoLink.textContent = result[i].name;
+      repoLink.href = result[i].html_url;
+      repoLink.target = '_blank';
+      reposContainer.appendChild(repoLink);
+    }
+  } catch (error) {
+    alert('An error occurred while fetching repositories');
+    console.log(error);
+  }
+}
